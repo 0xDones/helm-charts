@@ -1,0 +1,41 @@
+image:
+  pullPolicy: Always
+  repository: nginx
+  tag: latest
+
+app:
+  name: simple-nginx
+  env: dev
+  containerPort: 80
+
+service:
+  type: ClusterIP
+  annotations: {}
+  port: 80
+
+ingress:
+  enabled: true
+  className: ingress-nginx-external-prod
+  host: test-nginx.confia.net.br
+  annotations: {}
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+
+serviceAccount:
+  create: false
+  role_arn: arn:aws:iam::<ACCOUNT_ID>:role/<IAM_ROLE_NAME>
+
+healthcheck:
+  enabled: false
+  path: /healthcheck
+
+hpa:
+  enabled: true
+  min: 1
+  max: 1
+  averageUtilization: 70
+
+env_vars: []
