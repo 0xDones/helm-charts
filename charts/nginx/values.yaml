@@ -15,8 +15,8 @@ service:
 
 ingress:
   enabled: true
-  className: ingress-nginx-external-prod
-  host: test-nginx.confia.net.br
+  className: ingress-nginx
+  host: example.com
   annotations: {}
 
 resources:
