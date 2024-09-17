@@ -1,5 +1,25 @@
 apiVersion: v1
 entries:
+  nginx:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-09-17T14:19:01.076467326Z"
+    digest: d10eaa3cae9176ccf059bd43556418b905cf1d870d316ff892d2f3ab8dea0ed5
+    name: nginx
+    type: application
+    urls:
+    - https://github.com/0xDones/helm-charts/releases/download/nginx-0.0.1/nginx-0.0.1.tgz
+    version: 0.0.1
+  nginx-example:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-09-17T14:19:01.180348637Z"
+    digest: 27b1483b5697a70f00bb1b83452463fcf1847a580dd8fdd0ce72312be50f0116
+    name: nginx-example
+    type: application
+    urls:
+    - https://github.com/0xDones/helm-charts/releases/download/nginx-example-0.0.1/nginx-example-0.0.1.tgz
+    version: 0.0.1
   simple-nginx:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -10,4 +30,4 @@ entries:
     urls:
     - https://github.com/0xDones/helm-charts/releases/download/simple-nginx-0.0.1/simple-nginx-0.0.1.tgz
     version: 0.0.1
-generated: "2024-09-17T14:06:22.067854458Z"
+generated: "2024-09-17T14:19:01.307693345Z"
