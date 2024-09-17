@@ -10,6 +10,7 @@
 | app.env | string | `"dev"` |  |
 | app.name | string | `"simple-nginx"` |  |
 | env_vars | list | `[]` |  |
+| extraObjects | list | `[]` |  |
 | healthcheck.enabled | bool | `false` |  |
 | healthcheck.path | string | `"/healthcheck"` |  |
 | hpa.averageUtilization | int | `70` |  |
