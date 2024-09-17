@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  simple-nginx:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-09-17T14:06:22.067848857Z"
+    digest: 56841b8b0ac5b2a21501ebb7ad71f9e52f965d96c21de644274bda0f2c21d6a7
+    name: simple-nginx
+    type: application
+    urls:
+    - https://github.com/0xDones/helm-charts/releases/download/simple-nginx-0.0.1/simple-nginx-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-09-17T14:06:22.067854458Z"
