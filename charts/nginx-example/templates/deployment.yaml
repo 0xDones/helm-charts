@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}-{{ .Values.app.env }}
+  namespace: {{ .Values.app.name }}-{{ .Values.app.env }}
+  labels:
+    app: {{ .Values.app.name }}-{{ .Values.app.env }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}-{{ .Values.app.env }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}-{{ .Values.app.env }}
+    spec:
+      {{- if .Values.serviceAccount.create }}
+      serviceAccountName: {{ .Values.app.name }}-{{ .Values.app.env }}
+      {{- else }}
+      serviceAccountName: default
+      {{- end }}
+      containers:
+      - name: {{ .Values.app.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.app.containerPort }}
+          name: http
+          protocol: TCP
+        env: {{- toYaml .Values.env_vars | nindent 10 }}
+        resources: {{- toYaml .Values.resources | nindent 10 }}
+        {{- if .Values.healthcheck.enabled }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.healthcheck.path }}
+            port: http
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.healthcheck.path }}
+            port: http
+        {{- end }}
