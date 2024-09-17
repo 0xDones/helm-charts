@@ -39,3 +39,5 @@ hpa:
   averageUtilization: 70
 
 env_vars: []
+
+extraObjects: []
